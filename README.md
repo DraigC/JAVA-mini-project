@@ -1,4 +1,4 @@
-# A3 Project Registry
+# Java Mini-Project, Project Registry
 
 A simple Java web application built with JSP and MySQL for managing project team registrations. The app lets you create, view, edit, and delete project records from a `teams` table in a MySQL database.
 
