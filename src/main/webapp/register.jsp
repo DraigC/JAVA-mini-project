@@ -58,7 +58,7 @@ if (teamName != null && projectTitle != null) {
     try {
     	Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(
-            "jdbc:mysql://localhost:3306/project_registry?useSSL=false&serverTimezone=UTC", "root", "root");
+            "jdbc:mysql://localhost:3306/project_registry?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC", "root", "root");
 
         // ── Duplicate Check ──────────────────────────────────────────
         // Levenshtein Distance method (pure Java, no library needed)
@@ -95,9 +95,9 @@ if (teamName != null && projectTitle != null) {
             double jaccardScore = (union.size() == 0) ? 0 : (double) intersection.size() / union.size();
 
             // Combined score
-            double finalScore = (levScore * 0.5) + (jaccardScore * 0.5);
+            double finalScore = (levScore * 0.8) + (jaccardScore * 0.2);
 
-            if (finalScore >= 0.75) {
+            if (finalScore >= 0.51) {
                 duplicateTeam  = rs.getString("team_name");
                 duplicateTitle = rs.getString("project_title");
                 break;

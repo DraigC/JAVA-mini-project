@@ -25,7 +25,7 @@ Connection con = null;
 try {
 	Class.forName("com.mysql.cj.jdbc.Driver");
     con = DriverManager.getConnection(
-        "jdbc:mysql://localhost:3306/project_registry?useSSL=false&serverTimezone=UTC", "root", "root");
+        "jdbc:mysql://localhost:3306/project_registry?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC", "root", "root");
 
     // Handle Update submit
     if ("update".equals(action)) {

@@ -28,7 +28,7 @@ pageEncoding="UTF-8"%>
 try {
 	Class.forName("com.mysql.cj.jdbc.Driver");
     Connection con = DriverManager.getConnection(
-        "jdbc:mysql://localhost:3306/project_registry?useSSL=false&serverTimezone=UTC", "root", "root");
+        "jdbc:mysql://localhost:3306/project_registry?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC", "root", "root");
     Statement st = con.createStatement();
     ResultSet rs = st.executeQuery("SELECT * FROM teams");
 %>

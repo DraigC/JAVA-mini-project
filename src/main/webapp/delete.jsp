@@ -7,7 +7,7 @@ String teamId = request.getParameter("teamId");
 try {
 	Class.forName("com.mysql.cj.jdbc.Driver");
 	Connection con = DriverManager.getConnection(
-        "jdbc:mysql://localhost:3306/project_registry?useSSL=false&serverTimezone=UTC", "root", "root");
+        "jdbc:mysql://localhost:3306/project_registry?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC", "root", "root");
     PreparedStatement ps = con.prepareStatement("DELETE FROM teams WHERE team_id = ?");
     ps.setInt(1, Integer.parseInt(teamId));
     ps.executeUpdate();
